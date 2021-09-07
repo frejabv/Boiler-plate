@@ -17,6 +17,10 @@ namespace programFolder
             {
                 isLeapYear = true;
             }
+            if(year%100 == 0) 
+            {
+                isLeapYear = false;
+            }
 
             return isLeapYear;
         }

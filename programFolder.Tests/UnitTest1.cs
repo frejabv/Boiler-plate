@@ -19,5 +19,17 @@ namespace programFolder.Tests
             //I assert that the input is divisible by four and the method gives the correct output
             Assert.True(result);
         }
+
+        [Fact]
+        public void divisibleBy4And100()
+        {
+            //arrange
+            //act
+            var result1 = Program.IsLeapYear(200);
+            //var result2 = Program.IsLeapYear();
+            //assert
+            Assert.False(result1);
+            //Assert.False(result2);
+        }
     }
 }
