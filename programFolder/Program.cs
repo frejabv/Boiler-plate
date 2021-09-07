@@ -2,11 +2,23 @@
 
 namespace programFolder
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+        }
+
+        public static bool IsLeapYear(int year) 
+        {
+            bool isLeapYear = false;
+
+            if(year%4 == 0) 
+            {
+                isLeapYear = true;
+            }
+
+            return isLeapYear;
         }
     }
 }
