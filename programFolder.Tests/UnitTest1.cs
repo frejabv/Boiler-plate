@@ -1,5 +1,6 @@
 using System;
 using Xunit;
+using System.IO;
 
 namespace programFolder.Tests
 {
@@ -40,6 +41,26 @@ namespace programFolder.Tests
             var result = Program.IsLeapYear(400);
             //assert
             Assert.True(result);
+        }
+
+        [Fact]
+        public void printsYayOnLeapYear() 
+        {
+            //arrange
+            var writer = new StringWriter();
+            Console.SetOut(writer);
+            var input = new StringReader("1600");
+            Console.SetIn(input);
+            //act
+            Program.Main(new string[0]);
+            var output = writer.GetStringBuilder().ToString();
+
+
+            //assert
+            Console.WriteLine(output);
+            //todo pls fix
+            Assert.Equal("yay\n",output); //ordn det der med new line som han også havde i test til forelæsningen
+            //Assert.True(result);
         }
     }
 }
