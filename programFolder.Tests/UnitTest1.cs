@@ -31,5 +31,15 @@ namespace programFolder.Tests
             Assert.False(result1);
             //Assert.False(result2);
         }
+
+        [Fact]
+        public void divisibleBy400()
+        {
+            //arrange
+            //act
+            var result = Program.IsLeapYear(400);
+            //assert
+            Assert.True(result);
+        }
     }
 }
