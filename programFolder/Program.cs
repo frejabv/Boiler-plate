@@ -9,6 +9,7 @@ namespace programFolder
             Console.WriteLine("Please type a year:");
             int year = receiveInput();
             bool result = IsLeapYear(year);
+
             if(result) 
             {
                 Console.WriteLine("yay");
@@ -22,6 +23,7 @@ namespace programFolder
         public static bool IsLeapYear(int year) 
         {
             bool isLeapYear = false;
+
 
             if(year%4 == 0) 
             {
@@ -39,17 +41,16 @@ namespace programFolder
             return isLeapYear;
         }
 
-        public static int receiveInput() 
-        {
+        public static int receiveInput() {
             int year;
-            try 
-            {
+            try {
                 year = int.Parse(Console.ReadLine());
-            } 
-            catch (Exception e) 
-            {
-                //e.GetType();
-                Console.WriteLine("Please only type numbers:");
+            } catch(Exception e) {
+                Console.WriteLine("Please only type numbers");
+                year = receiveInput();
+            }
+            if(year < 1582) {
+                Console.WriteLine("Leap years only really count from 1582 and up, please try again");
                 year = receiveInput();
             }
             return year;
