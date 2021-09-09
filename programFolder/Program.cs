@@ -41,7 +41,24 @@ namespace programFolder
         }
 
         public static int receiveInput() {
-            int year;
+            bool inputNotReceived = true;
+            int year = 0;
+
+            while(inputNotReceived) {
+                try {
+                    year = int.Parse(Console.ReadLine());
+                    if(year < 1582) {
+                        Console.WriteLine("Leap years only really count from 1582 and up, please try again");
+                        inputNotReceived = true;
+                    } else {
+                        inputNotReceived = false;
+                    }
+                } catch(Exception e) {
+                    Console.WriteLine("Please only type numbers");
+                }
+            }
+
+            /*int year;
             try {
                 year = int.Parse(Console.ReadLine());
             } catch(Exception e) {
@@ -51,7 +68,7 @@ namespace programFolder
             if(year < 1582) {
                 Console.WriteLine("Leap years only really count from 1582 and up, please try again");
                 year = receiveInput();
-            }
+            }*/
             return year;
         }
     }
