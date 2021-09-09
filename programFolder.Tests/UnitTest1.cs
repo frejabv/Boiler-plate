@@ -9,6 +9,7 @@ namespace programFolder.Tests
         [Theory]
         [InlineData(4,true)]
         [InlineData(8,true)]
+        [InlineData(7,false)]
         [InlineData(200,false)]
         [InlineData(1600,true)]
         [InlineData(1700,false)]
@@ -69,9 +70,10 @@ namespace programFolder.Tests
             //assert
             Console.WriteLine(output);
             //todo pls fix
+            //ordn det der med new line som han også havde i test til forelæsningen
             var array = output.Split("\n");
             output = array[1];
-            Assert.Equal("yay",output); //ordn det der med new line som han også havde i test til forelæsningen
+            Assert.Equal("yay",output); 
         }
 
         [Theory]
@@ -95,5 +97,48 @@ namespace programFolder.Tests
             output = array[1];
             Assert.Equal(expectedPrint,output); 
         }
+
+        //somehow stop the method...
+        /*[Fact]
+        public void onlyAcceptsNumbers() 
+        {
+            //arrange
+            var writer = new StringWriter();
+            Console.SetOut(writer);
+            var input = new StringReader("hewwo");
+            Console.SetIn(input);
+
+            //act
+            Program.Main(new string[0]);
+            var output = writer.GetStringBuilder().ToString();
+
+            //assert
+            Console.WriteLine(output);
+            //todo pls fix
+            var array = output.Split("\n");
+            output = array[1];
+            Assert.Equal("Please only type numbers",output);
+        }*/
+
+        /*[Fact]
+        public void onlyAcceptsYearsPast1582() 
+        {
+            //arrange
+            var writer = new StringWriter();
+            Console.SetOut(writer);
+            var input = new StringReader("700");
+            Console.SetIn(input);
+
+            //act
+            Program.Main(new string[0]);
+            var output = writer.GetStringBuilder().ToString();
+
+            //assert
+            Console.WriteLine(output);
+            //todo pls fix
+            var array = output.Split("\n");
+            output = array[1];
+            Assert.Equal("Leap years only really count from 1582 and up, please try again",output);
+        }*/
     }
 }
